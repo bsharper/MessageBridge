@@ -1,7 +1,8 @@
 MessageBridge
 =============
 
-MessageBridge is a web-based front-end for Messages. Correctly renders most pictures and video attachments. Auto-updates when new message is received. 
+![Alt text](https://raw.githubusercontent.com/bsharper/MessageBridge/master/screenshot.jpg "MessageBridge in action")
+MessageBridge is a web-based front-end for Messages. It correctly renders most pictures and video attachments and auto-updates when new message is received. 
 
 #Quickstart
 You should just be able to run 
