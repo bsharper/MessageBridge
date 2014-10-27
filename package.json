@@ -1,0 +1,19 @@
+{
+  "name": "MessageBridge",
+  "version": "0.0.1",
+  "description": "Web interface for the Messages app in OS X",
+  "main": "app.js",
+  "dependencies": {
+    "expand-home-dir": "^0.0.2",
+    "express": "^4.9.7",
+    "socket.io": "^1.1.0",
+    "sqlite3": "^3.0.2",
+    "underscore":"^1.7.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Brian Harper (https://github.com/bsharper)",
+  "license": "GPLv3"
+}

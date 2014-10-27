@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Message Bridge</title>
+    <meta name="viewport" content="user-scalable=no,initial-scale = 1.0,maximum-scale = 1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="css/dashboard.css">
+    <link rel="stylesheet" type="text/css" href="lib/fancybox/jquery.fancybox.css">
+    <link rel="stylesheet" href="lib/fancybox/helpers/jquery.fancybox-thumbs.css" type="text/css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="css/emoji.css">
+    <link rel="stylesheet" type="text/css" href="css/spinner.css">
+    <link rel="stylesheet" type="text/css" href="css/typeahead.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  </head>
+  <body>
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">MessageBridge</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <!--<li><a href="#">Settings</a></li>-->
+            <li><a href="javascript:location.reload()">Refresh</a></li>
+            <li><a href="#">Help</a></li>
+          </ul>
+          <form class="navbar-form navbar-right">
+            <button class="btn btn-primary new-message-button" data-toggle="modal" onclick="return false;" data-target="#newMessage">New</button>
+            <input type="text" class="form-control" placeholder="Search...">
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-3 sidebar">
+          <ul id="uChatList" class="uChatList nav nav-sidebar"></ul>
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-9 col-md-offset-3 main">
+          <div id="messageHeaderWrapper">
+            <h3 id="messageHeader"></h3>
+          </div>
+          <div id="loading"></div>
+        <div id="chatView"></div>
+        <div class="chatInput" style="clear:both"><input type='text' id='myMessage' placeholder='  Message'/></div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="newMessage" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+        <!--
+          <div class="modal-header">
+          </div>
+          -->
+          <div class="modal-body">
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            <div class="form-group">
+              <input type="text" class="form-control contactSearch" placeholder="Contact Name"><br/>
+              <textarea class="form-control" rows="3" id="newMessage" placeholder="Message"></textarea>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="js/velocity.min.js"></script>
+    <script src="js/velocity.ui.js"></script>
+    <script src="js/underscore.min.js"></script>
+    <script src="js/moment.min.js"></script>
+    <script src="js/emoji.js"></script>
+    <script src="js/jquery.emoji.js"></script>
+    <script src="js/jquery.linkify.min.js"></script>
+    <script src="lib/fancybox/jquery.fancybox.pack.js"></script>
+    <script src="lib/fancybox/helpers/jquery.fancybox-thumbs.js"></script>
+    <script src="js/typeahead.bundle.min.js"></script>
+    
+    
+    <script src="js/events.min.js"></script>
+    <script src="js/mutate.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
