@@ -20,6 +20,12 @@ html, body {
   cursor: pointer;
   float:left;
 }
+.contact-list-button {
+  
+}
+.contact-list-button-span {
+  color:white;
+}
 .uChatList li:hover {
   background-color: #ACBDDA;
   color: black;
@@ -172,4 +178,21 @@ video {
 .bottom-anchor {
   position:absolute;
   bottom:0;
+}
+
+@media (max-width: 767px) {
+  .row {
+    margin-top:6px;
+  }
+  .uChatList li {
+    font-size:1.5em;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+  .chat-timestamp {
+    font-weight: lighter;
+  }
+  #messageHeader {
+    margin-left: 5px;
+  }
 }

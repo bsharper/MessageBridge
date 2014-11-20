@@ -109,6 +109,7 @@ var messageList = new function () {
 			$("#loading").velocity({ opacity: 0 }, {
 				duration:100,
 				complete: function () {
+					$("#loading").hide();
 					$("#chatView").velocity({ opacity: 1 }, {duration:200});
 				}
 			});
@@ -131,7 +132,7 @@ var messageList = new function () {
 		location.hash ="";
 		var hdr = $(".uChatList li.active div").html();
 		$("#messageHeader").html(hdr);
-		$("#loading").html(spinner).velocity({ opacity: 1 }, {duration:0});
+		$("#loading").html(spinner).show().velocity({ opacity: 1 }, {duration:0});
 		$("#chatView").html("").velocity({ opacity: 0 }, {duration:0});
 		var txt = "";
 		for (var i=0; i<msgs.length; i++) {
@@ -170,7 +171,9 @@ var chatList = new function () {
 			$(this).addClass('active');
 			var chat_id = $(this).find('[data-chat-id]').data('chat-id');
 			messageList.chat_id = chat_id;
-			socket.emit('getChat', chat_id, messageList.renderMessages)
+			socket.emit('getChat', chat_id, messageList.renderMessages);
+			$(".sidebar.in").collapse('hide');
+			$(".main").show();
 		})
 	}
 	this.renderChatList = function (ar) {
@@ -235,6 +238,10 @@ function windowResize() {
 	$(".chatInput").css({'position':'absolute', 'left':0});
 	var l = $(".chatInput").offset().left;
 	$(".chatInput").css({'position':'fixed', 'left':l});
+	$(".contact-list-button").unbind('click');
+	$(".contact-list-button:visible").click(function () {
+		$(".main").toggle();
+	});
 }
 function addTypeahead() {
 	$('.contactSearch').typeahead({
